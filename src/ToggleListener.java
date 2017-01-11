@@ -1,3 +1,4 @@
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
@@ -37,7 +38,13 @@ public class ToggleListener implements KeyListener{
 			frame.zoom(+.05);
 		}
 		
+		if((e.getKeyCode() == KeyEvent.VK_S) && ((e.getModifiers() & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) != 0 || (e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
+			frame.save.doClick();
+		}
 		
+		if((e.getKeyCode() == KeyEvent.VK_O) && ((e.getModifiers() & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) != 0 || (e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
+			frame.load.doClick();
+		}
 	}
 
 	public void keyReleased(KeyEvent e) {
